@@ -1,0 +1,23 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <AssemblyName>hznwol</AssemblyName>
+        <OutputType>Exe</OutputType>
+        <TargetFramework Condition="$([MSBuild]::IsOsPlatform('OSX')) == false">net7.0</TargetFramework>
+		<TargetFramework Condition="$([MSBuild]::IsOsPlatform('OSX')) == true">net8.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+        <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
+        <PublishAot>true</PublishAot>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <Content Include="..\.dockerignore">
+        <Link>.dockerignore</Link>
+      </Content>
+      <Content Include="..\build.sh">
+        <Link>build.sh</Link>
+      </Content>
+    </ItemGroup>
+
+</Project>
